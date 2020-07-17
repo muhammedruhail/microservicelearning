@@ -17,7 +17,7 @@ import com.ruhail.InventoryService.service.CategoryService;
  * Service Implementation for managing Category.
  */
 @Service
-@Transactional
+
 public class CategoryServiceImpl implements CategoryService {
 
 	private final Logger log = LoggerFactory.getLogger(CategoryServiceImpl.class);
