@@ -68,6 +68,21 @@
 		   <artifactId>lombok</artifactId>
 		   <scope>provided</scope>
 		</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.zalando/problem-spring-web -->
+		<dependency>
+		    <groupId>org.zalando</groupId>
+		    <artifactId>problem-spring-web</artifactId>
+		    <version>0.24.0-RC.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.jhipster/jhipster-dependencies -->
+		<dependency>
+		    <groupId>io.github.jhipster</groupId>
+		    <artifactId>jhipster-dependencies</artifactId>
+		    <version>3.9.0</version>
+		    <type>pom</type>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

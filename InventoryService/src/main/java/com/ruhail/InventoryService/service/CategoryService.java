@@ -5,39 +5,39 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.ruhail.InventoryService.domain.Product;
+import com.ruhail.InventoryService.domain.Category;
 
 /**
- * Service Interface for managing Product.
+ * Service Interface for managing Category.
  */
-public interface ProductService {
+public interface CategoryService {
 
 	/**
-	 * Save a product.
+	 * Save a category.
 	 *
-	 * @param product the entity to save
+	 * @param Category the entity to save
 	 * @return the persisted entity
 	 */
-	Product save(Product product);
+	Category save(Category category);
 
 	/**
-	 * Get all the products.
+	 * Get all the categories.
 	 *
 	 * @param pageable the pagination information
 	 * @return the list of entities
 	 */
-	Page<Product> findAll(Pageable pageable);
+	Page<Category> findAll(Pageable pageable);
 
 	/**
-	 * Get the "id" product.
+	 * Get the "id" category.
 	 *
 	 * @param id the id of the entity
 	 * @return the entity
 	 */
-	Optional<Product> findOne(Long id);
+	Optional<Category> findOne(Long id);
 
 	/**
-	 * Delete the "id" product.
+	 * Delete the "id" category.
 	 *
 	 * @param id the id of the entity
 	 */

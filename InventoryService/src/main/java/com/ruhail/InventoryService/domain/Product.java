@@ -1,36 +1,46 @@
 package com.ruhail.InventoryService.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+//import org.springframework.data.elasticsearch.annotations.Document;
+
+/**
+ * A Product.
+ */
 @Entity
+@Table(name = "product")
+//@Document(indexName = "product")
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private LocalDateTime createdDateTime;
+	@Column(name = "created_date")
+	private Instant createdDate;
 
-	private String createdUser;
+	@Column(name = "product_buying_price")
+	private Double productBuyingPrice;
 
-	private LocalDateTime lastModifiedDateTime;
-
-	private String lastModifiedUser;
-
-	private double productbuyingPrice;
-
+	@Column(name = "product_name")
 	private String productName;
 
-	private double productsellingPrice;
+	@Column(name = "producr_selling_price")
+	private Double producrSellingPrice;
 
+	// jhipster-needle-entity-add-field - JHipster will add fields here, do not
+	// remove
 	public Long getId() {
 		return id;
 	}
@@ -39,64 +49,84 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 
-	public LocalDateTime getCreatedDateTime() {
-		return createdDateTime;
+	public Instant getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setCreatedDateTime(LocalDateTime createdDateTime) {
-		this.createdDateTime = createdDateTime;
+	public Product createdDate(Instant createdDate) {
+		this.createdDate = createdDate;
+		return this;
 	}
 
-	public LocalDateTime getLastModifiedDateTime() {
-		return lastModifiedDateTime;
+	public void setCreatedDate(Instant createdDate) {
+		this.createdDate = createdDate;
 	}
 
-	public void setLastModifiedDateTime(LocalDateTime lastModifiedDateTime) {
-		this.lastModifiedDateTime = lastModifiedDateTime;
+	public Double getProductBuyingPrice() {
+		return productBuyingPrice;
 	}
 
-	public String getCreatedUser() {
-		return createdUser;
+	public Product productBuyingPrice(Double productBuyingPrice) {
+		this.productBuyingPrice = productBuyingPrice;
+		return this;
 	}
 
-	public void setCreatedUser(String createdUser) {
-		this.createdUser = createdUser;
-	}
-
-	public String getLastModifiedUser() {
-		return lastModifiedUser;
-	}
-
-	public void setLastModifiedUser(String lastModifiedUser) {
-		this.lastModifiedUser = lastModifiedUser;
-	}
-
-	public double getProductbuyingPrice() {
-		return productbuyingPrice;
-	}
-
-	public void setProductbuyingPrice(double productbuyingPrice) {
-		this.productbuyingPrice = productbuyingPrice;
+	public void setProductBuyingPrice(Double productBuyingPrice) {
+		this.productBuyingPrice = productBuyingPrice;
 	}
 
 	public String getProductName() {
 		return productName;
 	}
 
+	public Product productName(String productName) {
+		this.productName = productName;
+		return this;
+	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
-	public double getProductsellingPrice() {
-		return productsellingPrice;
+	public Double getProducrSellingPrice() {
+		return producrSellingPrice;
 	}
 
-	public void setProductsellingPrice(double productsellingPrice) {
-		this.productsellingPrice = productsellingPrice;
+	public Product producrSellingPrice(Double producrSellingPrice) {
+		this.producrSellingPrice = producrSellingPrice;
+		return this;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public void setProducrSellingPrice(Double producrSellingPrice) {
+		this.producrSellingPrice = producrSellingPrice;
+	}
+	// jhipster-needle-entity-add-getters-setters - JHipster will add getters and
+	// setters here, do not remove
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Product product = (Product) o;
+		if (product.getId() == null || getId() == null) {
+			return false;
+		}
+		return Objects.equals(getId(), product.getId());
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(getId());
+	}
+
+	@Override
+	public String toString() {
+		return "Product{" + "id=" + getId() + ", createdDate='" + getCreatedDate() + "'" + ", productBuyingPrice="
+				+ getProductBuyingPrice() + ", productName='" + getProductName() + "'" + ", producrSellingPrice="
+				+ getProducrSellingPrice() + "}";
+	}
 }
